@@ -6,7 +6,6 @@
 # load packages
 library(tidyverse)
 library(Hmisc)
-
 # Read in the data (csv format):
 # Newer methods from tidyr package
 jems <- read_csv("Data/diamonds.csv")
@@ -135,5 +134,26 @@ ggplot(jems_lm,aes(carat_log10,price_log10)) +
 jems %>%
   filter(clarity=='VVS2' & cut=='Good')
 
+jems %>%
+  filter(clarity == "VVS1", price < 1000) %>% 
+  select(cut, carat, price)
 
+jems %>%
+  select(starts_with("c"))
+
+jems %>%
+  select(-starts_with("c"))
+
+jems %>%
+  select(price, carat)
+  
+
+jems %>%
+  select(price, carat) %>%
+  log10()
+
+jems %>%
+  select(price, carat) %>%
+  log10() %>%
+  bind_cols(jems)
 

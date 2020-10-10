@@ -61,23 +61,3 @@ PlayData_t %>%
 
 
 
-#############
-
-PlantGrowth%>%
-  spread(group, weight)%>%
-  pivot_wider(names_from = group, values_from = weight)
-glimpse(PlantGrowth)
-
-spread(PlantGrowth, group, weight)->PlantGrowth_1
-
-pivot_wider(PlantGrowth, names_from = group, values_from = weight)->PlantGrowth_1
-
-typeof(PlantGrowth_1)
-class(PlantGrowth_1)
-as.matrix(PlantGrowth_1)
-glimpse(PlantGrowth_1)
-PlantGrowth_1$ctrl
-PlantGrowth_1$trt1
-PlantGrowth_1$trt2
-
-############
