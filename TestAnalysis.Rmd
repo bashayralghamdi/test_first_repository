@@ -7,18 +7,21 @@ output: html_document
 
 ```{r library, include=FALSE}
 library(tidyverse)
+library(knitr)
 ```
 
 **our dataset:**
 Chick Weight
 
 
- teams:
- bashayr,
- thani,
- ohoud,
- Sara,
- Fatima.
+ **teams:**  
+ - Bashayr  
+ - Tahani  
+ - Ohoud  
+ - Sara  
+ - Fatima  
+ - Safa
+ 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -26,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## summary
 
-```{r cars}
+```{r chicksts, echo=FALSE}
 str(chickwts)
 
 summary(chickwts)
@@ -45,5 +48,11 @@ plot(chickwts)
 ```{r statics, echo=FALSE}
 chickwts %>%
   group_by(feed) %>%
-  summarise(average =mean(weight), stdev = sd(weight))
+  summarise(average =mean(weight), stdev = sd(weight))->chick_mean
+kable(chick_mean)
+
 ```
+
+
+
+

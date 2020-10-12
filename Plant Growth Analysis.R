@@ -35,4 +35,30 @@ ggplot(PlantGrowth, aes(x = group, y = weight)) +
 
 
 
+PlantGrowth
+glimpse(PlantGrowth)
+
+pivot_wider(PlantGrowth,
+            names_from = "group",
+            values_from = "weight",
+            values_fn =  ) -> PlantGrowth1
+
+PlantGrowth1$ctrl
+class(PlantGrowth1)
+glimpse(PlantGrowth1)
+
+class(PlantGrowth$group)
+typeof(PlantGrowth$group)
+PlantGrowth$group <-  as.factor(PlantGrowth$group)
+class(PlantGrowth$weight)
+
+
+PlantGrowth%>%
+  spread(group  , weight)%>%
+  pivot_wider(names_from = group, values_from = weight)
+
+spread(PlantGrowth, group, weight)
+
+pivot_wider(PlantGrowth, names_from = group, values_from = weight)
+
 
